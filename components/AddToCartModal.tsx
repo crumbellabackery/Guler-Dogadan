@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { useCart } from "@/lib/cart-context";
 import type { CartItem } from "@/lib/cart-types";
-import type { ProductItem } from "@/data/pricing";
+import type { ProductItem } from "@/lib/catalog";
 
 interface AddToCartModalProps {
   product: ProductItem;

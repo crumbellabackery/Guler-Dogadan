@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useEffect, type FormEvent } from "react";
-import type { PricingData } from "@/data/pricing";
+import { useEffect, useState, type FormEvent } from "react";
 import { contactEmail } from "@/lib/site-config";
 import { Button } from "@/components/Button";
+import type { PricingData } from "@/lib/catalog";
 
 /**
  * Sipariş formu - Email gönderimi
@@ -17,17 +17,10 @@ export function ContactForm() {
   const [pricing, setPricing] = useState<PricingData>({});
 
   useEffect(() => {
-    // Fetch pricing from API (Google Sheets)
-    fetch("/api/pricing")
+    fetch("/api/pricing", { cache: "no-store" })
       .then((res) => res.json())
-      .then((data) => {
-        if (Object.keys(data).length > 0) {
-          setPricing(data);
-        }
-      })
-      .catch((err) => {
-        // Silent fail - use local data
-      });
+      .then((data: PricingData) => setPricing(data))
+      .catch(() => setPricing({}));
   }, []);
 
   useEffect(() => {
@@ -62,7 +55,7 @@ export function ContactForm() {
       return;
     }
 
-    // Get product and portion unit price from API data
+    // Get product and portion unit price from local catalog
     const product = pricing[productId];
     const portionOption = product?.portionOptions?.find(
       (opt) => opt.portionType === portionType
@@ -265,7 +258,7 @@ export function ContactForm() {
             id="note"
             name="note"
             rows={4}
-            placeholder="Teslimat saati, alerji, yazı yazısı vb."
+            placeholder="Teslimat notu, ürün adedi, paket tercihi vb."
             className="w-full resize-y rounded-2xl border border-luxury-accent/20 bg-luxury-primary/30 px-4 py-3 text-luxury-text placeholder:text-luxury-text/50 focus:border-luxury-accent/50 focus:outline-none focus:ring-2 focus:ring-luxury-accent/30"
           />
         </div>
@@ -343,7 +336,7 @@ export function ContactForm() {
                   Siparişiniz Alındı
                 </p>
                 <p className="text-gray-600 text-sm sm:text-base leading-relaxed">
-                  Tatlı tercihleriniz tarafımıza ulaştı. En kısa sürede sizinle iletişime geçeceğiz ve lezzetli anları yaşayacaksınız.
+                  Seçilen köy ürünleri tarafımıza ulaştı. En kısa sürede sizinle iletişime geçerek sipariş detaylarını netleştireceğiz.
                 </p>
               </div>
 

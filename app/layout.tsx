@@ -1,29 +1,41 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { Nunito_Sans, Alegreya } from "next/font/google";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { MobileTabBar } from "@/components/MobileTabBar";
 import { CartProvider } from "@/lib/cart-context";
+import { ASSETS } from "@/lib/assets";
 import { site } from "@/lib/site-config";
 import "./globals.css";
 
-const poppins = Poppins({
+const nunito = Nunito_Sans({
   subsets: ["latin", "latin-ext"],
   weight: ["400", "500", "600", "700"],
-  variable: "--font-poppins",
+  variable: "--font-nunito",
+  display: "swap",
+});
+
+const alegreya = Alegreya({
+  subsets: ["latin", "latin-ext"],
+  weight: ["400", "500", "700"],
+  variable: "--font-alegreya",
   display: "swap",
 });
 
 const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ?? "https://crumbella.com";
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://gulerdogadan.com";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${site.name} · Ev yapımı tatlı & tuzlu`,
+    default: `${site.name} · Doğal köy ürünleri`,
     template: `%s · ${site.name}`,
   },
   description: site.tagline,
+  icons: {
+    icon: ASSETS.brandLogo,
+    apple: ASSETS.brandLogo,
+  },
   appleWebApp: {
     capable: true,
     title: site.name,
@@ -44,7 +56,7 @@ export const metadata: Metadata = {
 
 /** Mobil notch / home indicator ile uyum + tema çubuğu */
 export const viewport: Viewport = {
-  themeColor: "#FAF7F2",
+  themeColor: "#F8F4EA",
   width: "device-width",
   initialScale: 1,
   viewportFit: "cover",
@@ -56,9 +68,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="tr" className={poppins.variable}>
+    <html lang="tr" className={`${nunito.variable} ${alegreya.variable}`}>
       <body
-        className={`${poppins.className} min-h-[100dvh] bg-luxury-bg text-luxury-text antialiased`}
+        className={`${nunito.className} min-h-[100dvh] bg-luxury-bg text-luxury-text antialiased`}
       >
         <CartProvider>
           <Header />

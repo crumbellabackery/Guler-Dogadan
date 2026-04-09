@@ -9,8 +9,13 @@ export type CartOrderRequest = {
   firstName: string;
   lastName: string;
   phone: string;
-  cartItems: CartItem[];
-  cartTotal: number;
+  cartItems?: CartItem[];
+  cartTotal?: number;
+  productName?: string;
+  portionType?: string;
+  quantity?: number;
+  unitPrice?: number;
+  totalPrice?: number;
   note?: string;
 };
 
@@ -34,11 +39,20 @@ export async function POST(request: Request) {
       phone,
       cartItems,
       cartTotal,
+      productName,
+      portionType,
+      quantity,
+      unitPrice,
+      totalPrice,
       note,
     } = body;
 
-    // Validate
-    if (!firstName || !lastName || !phone || !cartItems || cartItems.length === 0) {
+    const hasCartItems = Array.isArray(cartItems) && cartItems.length > 0;
+    const hasSingleProduct = Boolean(
+      productName && portionType && quantity && unitPrice !== undefined && totalPrice !== undefined,
+    );
+
+    if (!firstName || !lastName || !phone || (!hasCartItems && !hasSingleProduct)) {
       // Validation failed
       return Response.json(
         { error: "Missing required fields" },
@@ -46,10 +60,25 @@ export async function POST(request: Request) {
       );
     }
 
-    // Build HTML table for cart items
-    const itemsHtml = cartItems
+    const normalizedItems: CartItem[] = hasCartItems
+      ? cartItems
+      : [
+          {
+            id: `${productName}-${portionType}`,
+            type: "product",
+            name: productName!,
+            quantity: quantity!,
+            unitPrice: unitPrice!,
+            totalPrice: totalPrice!,
+            portionType,
+          },
+        ];
+
+    const normalizedTotal = hasCartItems ? cartTotal ?? 0 : totalPrice ?? 0;
+
+    const itemsHtml = normalizedItems
       .map((item) => {
-        const itemType = item.type === "package" ? "📦 Paket" : "🛒 Ürün";
+        const itemType = item.type === "package" ? "📦 Paket" : "🧺 Ürün";
         const portion = item.portionType ? ` (${item.portionType})` : "";
         return `
           <tr>
@@ -72,13 +101,13 @@ export async function POST(request: Request) {
 
     // Send email
     const response = await resend.emails.send({
-      from: "Crumbella <onboarding@resend.dev>",
-      to: process.env.CONTACT_EMAIL || "crumbellabackery@gmail.com",
-      subject: `🎁 Yeni Sipariş - ${firstName} ${lastName}`,
+      from: "Güler Doğadan <onboarding@resend.dev>",
+      to: process.env.CONTACT_EMAIL || "siparis@gulerdogadan.com",
+      subject: `🧺 Yeni Sipariş - ${firstName} ${lastName}`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <h2 style="color: #c89b7b; border-bottom: 2px solid #c89b7b; padding-bottom: 10px;">
-            📋 Yeni Sipariş Talebi
+          <h2 style="color: #5f7f4f; border-bottom: 2px solid #5f7f4f; padding-bottom: 10px;">
+            📋 Ürün Sipariş Talebi
           </h2>
           
           <h3 style="color: #333; margin-top: 20px;">Müşteri Bilgileri</h3>
@@ -89,10 +118,10 @@ export async function POST(request: Request) {
           <table style="width: 100%; border-collapse: collapse; margin: 15px 0;">
             <thead>
               <tr style="background-color: #f5f5f5;">
-                <th style="padding: 10px; text-align: left; border-bottom: 2px solid #c89b7b;">Ürün</th>
-                <th style="padding: 10px; text-align: center; border-bottom: 2px solid #c89b7b;">Miktar</th>
-                <th style="padding: 10px; text-align: right; border-bottom: 2px solid #c89b7b;">Birim Fiyatı</th>
-                <th style="padding: 10px; text-align: right; border-bottom: 2px solid #c89b7b;">Toplam</th>
+                <th style="padding: 10px; text-align: left; border-bottom: 2px solid #5f7f4f;">Ürün</th>
+                <th style="padding: 10px; text-align: center; border-bottom: 2px solid #5f7f4f;">Miktar</th>
+                <th style="padding: 10px; text-align: right; border-bottom: 2px solid #5f7f4f;">Birim Fiyatı</th>
+                <th style="padding: 10px; text-align: right; border-bottom: 2px solid #5f7f4f;">Toplam</th>
               </tr>
             </thead>
             <tbody>
@@ -100,23 +129,23 @@ export async function POST(request: Request) {
             </tbody>
           </table>
           
-          <div style="background-color: #faf7f2; padding: 15px; border-radius: 8px; margin: 20px 0;">
+          <div style="background-color: #f2f7ef; padding: 15px; border-radius: 8px; margin: 20px 0; border: 1px solid #d7e4d0;">
             <div style="display: flex; justify-content: space-between; font-size: 18px;">
               <strong>Genel Toplam:</strong>
-              <strong style="color: #c89b7b; font-size: 24px;">₺${cartTotal}</strong>
+              <strong style="color: #5f7f4f; font-size: 24px;">₺${normalizedTotal}</strong>
             </div>
           </div>
           
           ${note ? `
             <h3 style="color: #333; margin-top: 20px;">Özel Notlar</h3>
-            <p style="background-color: #f9f9f9; padding: 10px; border-left: 4px solid #c89b7b;">
+            <p style="background-color: #f6f9f4; padding: 10px; border-left: 4px solid #5f7f4f;">
               ${note}
             </p>
           ` : ""}
           
           <hr style="margin-top: 30px; border: none; border-top: 1px solid #e0e0e0;" />
           <p style="color: #999; font-size: 12px; margin-top: 20px;">
-            ✉️ Lütfen müşteriyle en kısa sürede iletişime geçerek sipariş detaylarını onaylayınız.
+            ✉️ Lütfen müşteriyle yukarıdaki telefon numarası üzerinden en kısa sürede iletişime geçerek sipariş detaylarını teyit ediniz.
           </p>
         </div>
       `,
@@ -125,7 +154,7 @@ export async function POST(request: Request) {
     if (response.error) {
       // Email send failed
       return Response.json(
-        { error: "Failed to send email" },
+        { error: response.error.message || "Failed to send email" },
         { status: 500 }
       );
     }

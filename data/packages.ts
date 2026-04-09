@@ -1,0 +1,1 @@
+export type { PackageItem } from "@/lib/catalog";

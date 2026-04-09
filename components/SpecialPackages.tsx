@@ -1,30 +1,24 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useCart } from "@/lib/cart-context";
 import { Section } from "@/components/Section";
-import type { Package } from "@/app/api/packages/route";
+import type { PackageItem } from "@/lib/catalog";
 import type { CartItem } from "@/lib/cart-types";
 
 export function SpecialPackages() {
   const { addItem } = useCart();
-  const [packages, setPackages] = useState<Package[]>([]);
   const [expandedId, setExpandedId] = useState<string | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [packages, setPackages] = useState<PackageItem[]>([]);
 
   useEffect(() => {
-    fetch("/api/packages")
+    fetch("/api/packages", { cache: "no-store" })
       .then((res) => res.json())
-      .then((data: Package[]) => {
-        setPackages(data);
-      })
-      .catch((err) => {
-        // Silent fail - show empty state
-      })
-      .finally(() => setLoading(false));
+      .then((data: PackageItem[]) => setPackages(data))
+      .catch(() => setPackages([]));
   }, []);
 
-  const handleAddPackageToCart = (pkg: Package) => {
+  const handleAddPackageToCart = (pkg: PackageItem) => {
     const cartItem: CartItem = {
       id: pkg.id,
       type: "package",
@@ -40,19 +34,15 @@ export function SpecialPackages() {
   };
 
   return (
-    <Section eyebrow="KOLEKSIYONUMUZ" title="Özel Paketler" className="pt-10">
+    <Section eyebrow="PAKETLERİMİZ" title="Özel Doğal Paketler" className="pt-10">
       <div className="mx-auto max-w-4xl mb-12">
         <p className="text-center text-luxury-text/75 text-lg leading-relaxed mb-4">
-          Özel anlarınızı daha tatlı ve unutulmaz kılmak için titizlikle tasarlanmış paketler. Her bir paket, sevginizi ve özeni yansıtan, el yapımı seçkin ürünlerden oluşur.
+          Günlük ihtiyacınıza ve hediye amaçlı seçimlerinize uygun, özenle hazırlanmış köy ürünleri paketleri. Her paket tazelik ve doğallık odaklı içeriklerden oluşur.
         </p>
         <div className="h-px bg-gradient-to-r from-transparent via-luxury-accent to-transparent opacity-30"></div>
       </div>
 
-      {loading ? (
-        <div className="text-center py-12 text-luxury-text/70">
-          <p>Koleksiyonumuz yükleniyor...</p>
-        </div>
-      ) : packages.length === 0 ? (
+      {packages.length === 0 ? (
         <div className="text-center py-12 text-luxury-text/70">
           <p>Paket verisi bulunamadı.</p>
         </div>
@@ -127,10 +117,10 @@ export function SpecialPackages() {
 
       <div className="rounded-2xl bg-gradient-to-br from-luxury-accent/12 to-luxury-secondary/8 border border-luxury-accent/25 p-8 text-center">
         <p className="text-luxury-text/75 leading-relaxed mb-2">
-          <span className="font-semibold text-luxury-accent text-lg">Kendi özel paketinizi mi hayal ediyorsunuz?</span>
+          <span className="font-semibold text-luxury-accent text-lg">Kendi özel doğal paketinizi oluşturmak ister misiniz?</span>
         </p>
         <p className="text-sm text-luxury-text/60">
-          Bizimle iletişime geçin ve hayal ettiğiniz özel tasarımın gerçekleşmesini sağlayın.
+          Bizimle iletişime geçin, ihtiyacınıza uygun içeriği birlikte planlayalım.
         </p>
       </div>
     </Section>

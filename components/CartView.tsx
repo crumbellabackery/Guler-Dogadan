@@ -55,8 +55,8 @@ export function CartView() {
         setTimeout(() => {
           const pdfContent = `
             <div style="font-family: 'Segoe UI', Arial, sans-serif; color: #2c2c2c; max-width: 100%; margin: 0; padding: 0;">
-              <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #d4af37;">
-                <h1 style="font-size: 32px; margin: 0 0 5px 0; font-weight: bold; letter-spacing: 2px;">Crumbella</h1>
+              <div style="text-align: center; margin-bottom: 20px; padding-bottom: 15px; border-bottom: 2px solid #5f7f4f;">
+                <h1 style="font-size: 32px; margin: 0 0 5px 0; font-weight: bold; letter-spacing: 2px;">Güler Doğadan</h1>
                 <h2 style="font-size: 14px; color: #888; margin: 0; font-weight: 300; letter-spacing: 1px;">SİPARİŞ BELGESİ</h2>
               </div>
 
@@ -65,7 +65,7 @@ export function CartView() {
                 <p style="margin: 5px 0;"><strong>Tarih:</strong> ${new Date().toLocaleDateString("tr-TR", { year: 'numeric', month: '2-digit', day: '2-digit' })}</p>
               </div>
 
-              <div style="margin-bottom: 20px; padding: 12px; background-color: #f9f7f4; border-left: 3px solid #d4af37;">
+              <div style="margin-bottom: 20px; padding: 12px; background-color: #f2f7ef; border-left: 3px solid #5f7f4f;">
                 <p style="margin: 3px 0; font-size: 11px;"><strong>Müşteri:</strong> ${submittedData.firstName} ${submittedData.lastName}</p>
                 <p style="margin: 3px 0; font-size: 11px;"><strong>Telefon:</strong> ${submittedData.phone}</p>
               </div>
@@ -73,7 +73,7 @@ export function CartView() {
               <h3 style="font-size: 12px; font-weight: bold; margin: 15px 0 10px 0; text-transform: uppercase; letter-spacing: 1px;">Sipariş Detayları</h3>
               <table style="width: 100%; border-collapse: collapse; margin-bottom: 15px; font-size: 10px;">
                 <thead>
-                  <tr style="background-color: #f0ebe5; border-bottom: 2px solid #d4af37;">
+                  <tr style="background-color: #e8f0e4; border-bottom: 2px solid #5f7f4f;">
                     <th style="padding: 8px; text-align: left; font-weight: bold; border-right: 1px solid #ddd;">Ürün</th>
                     <th style="padding: 8px; text-align: center; font-weight: bold; width: 15%; border-right: 1px solid #ddd;">Miktar</th>
                     <th style="padding: 8px; text-align: right; font-weight: bold; width: 18%; border-right: 1px solid #ddd;">BirimFiyat</th>
@@ -92,14 +92,14 @@ export function CartView() {
                 </tbody>
               </table>
 
-              <div style="text-align: right; padding: 12px 0; border-top: 2px solid #d4af37; border-bottom: 2px solid #d4af37; margin-bottom: 15px;">
-                <p style="font-size: 14px; font-weight: bold; margin: 0; color: #d4af37;">TOPLAM: ₺${submittedTotal.toFixed(2)}</p>
+              <div style="text-align: right; padding: 12px 0; border-top: 2px solid #5f7f4f; border-bottom: 2px solid #5f7f4f; margin-bottom: 15px;">
+                <p style="font-size: 14px; font-weight: bold; margin: 0; color: #5f7f4f;">TOPLAM: ₺${submittedTotal.toFixed(2)}</p>
               </div>
 
               <div style="font-size: 9px; color: #888; line-height: 1.5; text-align: center; padding-top: 10px; border-top: 1px solid #ddd;">
                 <p style="margin: 3px 0;">Siparişiniz başarıyla alınmıştır.</p>
-                <p style="margin: 3px 0;">En kısa zamanda mesaj yoluyla sizinle iletişime geçeceğiz.</p>
-                <p style="margin: 5px 0 0 0; font-size: 8px;">Crumbella Bakery</p>
+                <p style="margin: 3px 0;">En kısa zamanda 0533 319 9836 numarasından sizinle iletişime geçilecektir.</p>
+                <p style="margin: 5px 0 0 0; font-size: 8px;">Güler Doğadan</p>
               </div>
             </div>
           `;
@@ -149,13 +149,13 @@ export function CartView() {
   if (cart.items.length === 0) {
     return (
       <Section eyebrow="Sepetim" title="Sepetiniz Boş" className="pt-10 text-center">
-        <p className="mx-auto mb-12 max-w-2xl text-luxury-text/70 text-lg">Menüden sevdiğiniz ürünleri ekleyin!</p>
+        <p className="mx-auto mb-12 max-w-2xl text-luxury-text/70 text-lg">Ürünler sayfasından ihtiyacınıza uygun ürünleri sepete ekleyin.</p>
         <div className="flex flex-col gap-3 sm:flex-row justify-center">
           <Link href="/menu" className="px-8 py-3 rounded-lg bg-gradient-to-r from-luxury-accent to-luxury-secondary text-luxury-bg font-semibold hover:shadow-soft-md transition transform hover:scale-105">
-            🍰 Menüyü Gözat
+            🧺 Ürünleri Gözat
           </Link>
           <Link href="/gallery" className="px-8 py-3 rounded-lg border-2 border-luxury-accent/40 hover:border-luxury-accent hover:bg-luxury-accent/5 text-luxury-text font-semibold transition transform hover:scale-105">
-            📦 Özel Paketler
+            📦 Doğal Paketler
           </Link>
         </div>
       </Section>
@@ -347,7 +347,7 @@ export function CartView() {
 
               {/* Info */}
               <div className="rounded-lg bg-luxury-primary/40 p-3.5 text-xs border border-luxury-accent/20">
-                <p className="text-luxury-text/75"><span className="font-semibold"> Teslimat:</span> Siparişler onaylandıktan sonra hazırlanır.</p>
+                <p className="text-luxury-text/75"><span className="font-semibold"> Teslimat:</span> Siparişler onaylandıktan sonra ürünler mevsim ve stok durumuna göre hazırlanır.</p>
               </div>
             </div>
           </div>

@@ -1,20 +1,35 @@
 "use client";
 
 import Link from "next/link";
+import { Great_Vibes } from "next/font/google";
 import { usePathname } from "next/navigation";
 import { useCart } from "@/lib/cart-context";
-import { Logo } from "@/components/Logo";
 import { Button } from "@/components/Button";
 import { mainNav, isNavActive } from "@/lib/navigation";
+import { site } from "@/lib/site-config";
+
+const greatVibes = Great_Vibes({
+  weight: "400",
+  subsets: ["latin"],
+  display: "swap",
+});
 
 export function Header() {
   const pathname = usePathname();
   const { cart } = useCart();
 
   return (
-    <header className="sticky top-0 z-40 border-b border-luxury-secondary/30 bg-luxury-primary/70 pt-[env(safe-area-inset-top,0px)] shadow-soft backdrop-blur-md">
+    <header className="sticky top-0 z-40 border-b border-luxury-accent/10 bg-[linear-gradient(180deg,rgba(248,244,234,0.88),rgba(248,244,234,0.72))] pt-[env(safe-area-inset-top,0px)] shadow-soft backdrop-blur-xl">
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-6 lg:px-8">
-        <Logo />
+        <Link
+          href="/"
+          className="group inline-flex min-w-0 items-center rounded-[1.4rem] px-1 py-1 transition duration-300"
+          aria-label={site.name}
+        >
+          <span className={`${greatVibes.className} text-[2.2rem] leading-none text-luxury-accent sm:text-[2.8rem] lg:text-[3rem]`}>
+            Güler Doğadan
+          </span>
+        </Link>
 
         {/* Masaüstü: tam menü + CTA */}
         <nav

@@ -5,14 +5,13 @@
  */
 
 export const ASSETS = {
+  brandLogo: "/images/G%C3%BCler%20Do%C4%9Fadan%20logosu%20ve%20zeytin%20dal%C4%B1.png",
+
   // About sayfası
-  aboutBakery: "/images/Berkelti%20ev%20mutfa%C4%9F%C4%B1%20ve%20tatl%C4%B1lar.png",
-  
-  // Logo fallback
-  logo: "/logo.png",
-  
+  aboutVillage: "/images/Zeytin%20ve%20zeytinya%C4%9F%C4%B1%20ile%20do%C4%9Fall%C4%B1k.png",
+
   // Placeholder (hiçbir görsel yoksa)
-  placeholder: "/logo.png",
+  placeholder: "https://images.unsplash.com/photo-1514996937319-344454492b37?w=1200&q=80",
 } as const;
 
 /**

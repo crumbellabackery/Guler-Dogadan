@@ -10,26 +10,27 @@ const config: Config = {
     extend: {
       colors: {
         luxury: {
-          bg: "#FAF7F2",
-          primary: "#EAD7C5",
-          accent: "#C89B7B",
-          text: "#2B2B2B",
-          secondary: "#E8B4B8",
+          bg: "#FAF6EE",
+          primary: "#ECE2CC",
+          accent: "#3F5A2D",
+          text: "#2E281F",
+          secondary: "#7B6130",
         },
         cream: {
-          50: "#FAF7F2",
-          100: "#EAD7C5",
-          200: "#D4C4B0",
+          50: "#FAF6EE",
+          100: "#ECE2CC",
+          200: "#D8C8A6",
         },
         blush: {
-          50: "#F5F0ED",
-          100: "#E8B4B8",
-          200: "#DFA0A5",
-          300: "#D68B91",
+          50: "#F4EEE4",
+          100: "#CBB388",
+          200: "#A9854A",
+          300: "#7B6130",
         },
       },
       fontFamily: {
-        sans: ["var(--font-poppins)", "system-ui", "sans-serif"],
+        sans: ["var(--font-nunito)", "system-ui", "sans-serif"],
+        serif: ["var(--font-alegreya)", "Georgia", "serif"],
       },
       boxShadow: {
         soft: "0 4px 15px rgba(43, 43, 43, 0.08)",
@@ -38,7 +39,7 @@ const config: Config = {
       },
       backgroundImage: {
         "hero-mesh":
-          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(232, 180, 184, 0.15), transparent), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(200, 155, 123, 0.08), transparent), radial-gradient(ellipse 50% 30% at 0% 100%, rgba(234, 215, 197, 0.1), transparent)",
+          "radial-gradient(ellipse 80% 50% at 50% -20%, rgba(63, 90, 45, 0.18), transparent), radial-gradient(ellipse 60% 40% at 100% 0%, rgba(123, 97, 48, 0.15), transparent), radial-gradient(ellipse 50% 30% at 0% 100%, rgba(236, 226, 204, 0.35), transparent)",
       },
       animation: {
         "fade-up": "fadeUp 0.7s ease-out forwards",

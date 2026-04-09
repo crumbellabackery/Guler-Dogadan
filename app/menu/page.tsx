@@ -1,58 +1,62 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import Image from "next/image";
 import { Section } from "@/components/Section";
 import { AddToCartModal } from "@/components/AddToCartModal";
-import type { PricingData, ProductItem } from "@/data/pricing";
+import { useEffect, useState } from "react";
+import type { PricingData, ProductItem } from "@/lib/catalog";
 
 export default function MenuPage() {
   const [pricing, setPricing] = useState<PricingData>({});
-  const [loading, setLoading] = useState(true);
   const [selectedProduct, setSelectedProduct] = useState<ProductItem | null>(null);
 
   useEffect(() => {
-    // Fetch pricing from API (Google Sheets)
-    fetch("/api/pricing")
+    fetch("/api/pricing", { cache: "no-store" })
       .then((res) => res.json())
-      .then((data) => {
-        if (Object.keys(data).length > 0) {
-          setPricing(data);
-        }
-      })
-      .catch((err) => {
-        // Silent fail - use local data
-      })
-      .finally(() => setLoading(false));
+      .then((data: PricingData) => setPricing(data))
+      .catch(() => setPricing({}));
   }, []);
+
   return (
     <Section
-      eyebrow="Fiyat listesi"
-      title="Menümüz"
+      eyebrow="Ürün listesi"
+      title="Ürünlerimiz"
       className="pt-6"
     >
       <p className="mx-auto mb-4 max-w-2xl text-center text-luxury-text/70">
-        Her ürün özenle hazırlanır. Bireysel ve tepsi siparişleri için çeşitli seçenekler.{" "}
-        <span className="font-medium text-luxury-accent">Sipariş üzerine</span> ürünler işaretlidir.
+        Doğal ve katkısız köy ürünlerini ürün bazlı miktar seçenekleriyle inceleyebilirsiniz.{" "}
+        <span className="font-medium text-luxury-accent">Mevsimlik</span> ürünler ayrıca belirtilir.
       </p>
       <p className="mx-auto mb-8 max-w-2xl text-center text-xs text-luxury-text/50">
-        📸 Fotoğraflar tamamen kendi çekimimizdir
+        📸 Fotoğraflar ürün sunumunu temsil eder
       </p>
 
       <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3 pb-24 sm:pb-6">
-        {Object.entries(pricing).map(([productId, product]) => (
+        {Object.values(pricing).map((product) => (
           <li
-            key={productId}
-            className="group relative flex flex-col overflow-hidden rounded-3xl bg-luxury-bg/95 shadow-soft ring-1 ring-luxury-accent/20 transition duration-300 hover:-translate-y-1 hover:shadow-soft-md"
+            key={product.id}
+            className="group relative flex flex-col overflow-hidden rounded-[2rem] bg-[linear-gradient(180deg,rgba(248,244,234,0.98),rgba(231,223,200,0.86))] shadow-soft-lg ring-1 ring-luxury-accent/20 transition duration-300 hover:-translate-y-1.5 hover:shadow-soft-lg"
           >
-            <div className="relative aspect-[4/3] overflow-hidden bg-luxury-primary">
+            <div className="relative aspect-[5/4] overflow-hidden bg-[linear-gradient(180deg,rgba(255,255,255,0.96),rgba(243,238,228,0.92))]">
               <Image
-                src={product.image || "/logo.png"}
-                alt={product.name || "Crumbella"}
+                src={product.image || "https://images.unsplash.com/photo-1514996937319-344454492b37?w=1200&q=80"}
+                alt=""
                 fill
-                className="object-cover transition duration-500 group-hover:scale-[1.04]"
+                aria-hidden
+                className="object-cover scale-110 blur-sm opacity-35 transition duration-500 group-hover:scale-[1.14]"
                 sizes="(max-width: 640px) 100vw, 33vw"
               />
+              <Image
+                src={product.image || "https://images.unsplash.com/photo-1514996937319-344454492b37?w=1200&q=80"}
+                alt={product.name || "Güler Doğadan ürünü"}
+                fill
+                className="object-contain object-center scale-[1.12] p-2 transition duration-500 group-hover:scale-[1.15]"
+                sizes="(max-width: 640px) 100vw, 33vw"
+              />
+              <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-stone-900/28 via-stone-900/8 to-transparent" />
+              <div className="absolute left-4 top-4 rounded-full bg-luxury-bg/80 px-3 py-1 text-[11px] font-semibold uppercase tracking-[0.22em] text-luxury-accent backdrop-blur-sm">
+                Premium Seçki
+              </div>
             </div>
             <div className="flex flex-1 flex-col p-5">
               <h3 className="text-lg font-semibold text-luxury-text">
@@ -63,7 +67,7 @@ export default function MenuPage() {
               </p>
 
               {/* Fiyat Listesi */}
-              <div className="mt-4 space-y-2 p-3 bg-luxury-primary/30 rounded-lg">
+              <div className="mt-4 space-y-2 rounded-2xl border border-luxury-accent/10 bg-luxury-primary/35 p-3.5">
                 {product.portionOptions?.map((portion, idx) => (
                   <div key={idx} className="flex justify-between text-sm text-luxury-text/80">
                     <span>{portion.portionType}</span>

@@ -4,9 +4,9 @@
  */
 
 const rawWhatsapp =
-  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "+90 555 xxx xx xx";
+  process.env.NEXT_PUBLIC_WHATSAPP_NUMBER ?? "+90 533 319 98 36";
 const rawEmail =
-  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "crumbellabackery@gmail.com";
+  process.env.NEXT_PUBLIC_CONTACT_EMAIL ?? "siparis@gulerdogadan.com";
 
 /** Digits only, with country code (e.g. Turkey 90...) */
 export const whatsappNumber = rawWhatsapp.replace(/\D/g, "");
@@ -14,25 +14,25 @@ export const whatsappNumber = rawWhatsapp.replace(/\D/g, "");
 export const contactEmail = rawEmail;
 
 export const site = {
-  name: "Crumbella",
+  name: "Güler Doğadan",
   /** Short line under the logo on the home hero */
-  tagline: "Her ısırıkta ev sıcaklığı, taptaze lezzetler",
+  tagline: "Köyden sofranıza doğal, katkısız ve özenle seçilmiş ürünler",
   /** City / region shown in footer */
-  location: "Hatay · İskenderun",
+  location: "Hatay",
   /** Display phone (footer); can differ from WhatsApp */
-  phoneDisplay: "crumbellabackery@gmail.com",
+  phoneDisplay: "0533 319 98 36",
   /**
    * Use E.164-style digits for tel: links — set NEXT_PUBLIC_PHONE_TEL or edit here.
    */
   phoneTel:
-    process.env.NEXT_PUBLIC_PHONE_TEL?.replace(/\s/g, "") ?? "+90555xxxxxxx",
+    process.env.NEXT_PUBLIC_PHONE_TEL?.replace(/\s/g, "") ?? "+905333199836",
 } as const;
 
 /**
  * Social profile URLs — replace with your real handles.
  */
 export const social = {
-  instagram: "https://www.instagram.com/crumbella.backery/",
+  instagram: "https://www.instagram.com/gulerdogadan/",
   /** Optional: set to empty string to hide icon */
   facebook: "",
   tiktok: "",

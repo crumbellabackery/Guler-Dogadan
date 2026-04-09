@@ -1,0 +1,233 @@
+{
+  "products": [
+    {
+      "id": "soguk-sikim-zeytinyagi",
+      "name": "Soğuk Sıkım Zeytinyağı",
+      "description": "Düşük asit oranlı, meyvemsi aromaya sahip premium erken hasat zeytinyağı.",
+      "image": "/images/So%C4%9Fuk%20s%C4%B1k%C4%B1m%20zeytinya%C4%9F%C4%B1%20ve%20do%C4%9Fa.png",
+      "portionOptions": [
+        {
+          "portionType": "1 Litre Cam Şişe",
+          "unitPrice": 890
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "hatay-dogal-nar-eksisi",
+      "name": "Hatay Doğal Nar Ekşisi",
+      "description": "Yoğun kıvamlı, katkısız ve gerçek nardan üretilmiş geleneksel tat.",
+      "image": "/images/Hatay%20nar%20ek%C5%9Fisi%20ve%20narlar.png",
+      "portionOptions": [
+        {
+          "portionType": "1 Litre Cam Şişe",
+          "unitPrice": 520
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "domates-salcasi",
+      "name": "Domates Salçası",
+      "description": "Güneş görerek köy usulü çekilen, yemeklere derin lezzet veren domates salçası.",
+      "image": "/images/Do%C4%9Fal%20domates%20sal%C3%A7as%C4%B1%20ve%20malzemeler.png",
+      "portionOptions": [
+        {
+          "portionType": "1 kg Kavanoz",
+          "unitPrice": 320
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "tatli-biber-salcasi",
+      "name": "Tatlı Biber Salçası",
+      "description": "Tatlı kırmızı biberlerden hazırlanan, kahvaltı ve sulu yemekler için ideal seçim.",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20tatl%C4%B1%20biber%20sal%C3%A7as%C4%B1.png",
+      "portionOptions": [
+        {
+          "portionType": "1 kg Kavanoz",
+          "unitPrice": 340
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "aci-biber-salcasi",
+      "name": "Acı Biber Salçası",
+      "description": "Hatay sofralarının karakteristik acılığını taşıyan, dengeli aromalı biber salçası.",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20ac%C4%B1%20biber%20sal%C3%A7as%C4%B1.png",
+      "portionOptions": [
+        {
+          "portionType": "1 kg Kavanoz",
+          "unitPrice": 350
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "dogal-kuru-incir",
+      "name": "Doğal Kuru İncir",
+      "description": "Yoğun aromalı, lifli yapısını koruyan ve özenle seçilmiş doğal kuru incir.",
+      "image": "/images/Do%C4%9Fal%20kuru%20incir%20ve%20G%C3%BCler%20Do%C4%9Fadan.png",
+      "portionOptions": [
+        {
+          "portionType": "500 gr Paket",
+          "unitPrice": 220
+        },
+        {
+          "portionType": "1 kg Paket",
+          "unitPrice": 410
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "uzum-pekmezi",
+      "name": "Üzüm Pekmezi",
+      "description": "Geleneksel usulle kaynatılan, kahvaltı ve ara öğünler için besleyici üzüm pekmezi.",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20%C3%BCz%C3%BCm%20pekmezi%20ve%20%C3%BCz%C3%BCm%20tasviri.png",
+      "portionOptions": [
+        {
+          "portionType": "1000 gr Kavanoz",
+          "unitPrice": 360
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "keciboynuzu-pekmezi",
+      "name": "Keçiboynuzu Pekmezi",
+      "description": "Doğal şeker dengesiyle öne çıkan, köy mutfağından gelen geleneksel lezzet.",
+      "image": "/images/Ke%C3%A7iboynuzu%20pekmezi%20ve%20do%C4%9Fal%20g%C3%BCzellik.png",
+      "portionOptions": [
+        {
+          "portionType": "1000 gr Kavanoz",
+          "unitPrice": 390
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "kimyon",
+      "name": "Kimyon",
+      "description": "Et yemekleri ve köfte tarifleri için güçlü aromalı öğütülmüş kimyon.",
+      "image": "/images/Kimyon%20ve%20G%C3%BCler%20Do%C4%9Fadan%20etiketi.png",
+      "portionOptions": [
+        {
+          "portionType": "100 gr Paket",
+          "unitPrice": 95
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "kekik",
+      "name": "Kekik",
+      "description": "Yüksek kokulu, kahvaltılık ve marinasyonlarda öne çıkan kurutulmuş kekik.",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20kekik%20ve%20baharatlar.png",
+      "portionOptions": [
+        {
+          "portionType": "100 gr Paket",
+          "unitPrice": 90
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "karabiber",
+      "name": "Karabiber",
+      "description": "Taze çekime uygun taneli ve öğütülmüş kullanım için rafine seçim.",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20karabiberi.png",
+      "portionOptions": [
+        {
+          "portionType": "100 gr Paket",
+          "unitPrice": 120
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "nane",
+      "name": "Nane",
+      "description": "Ferahlatıcı kokusu yüksek, çorba ve zeytinyağlı tariflerle uyumlu kuru nane.",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20nane%20ve%20do%C4%9Fal%20detaylar.png",
+      "portionOptions": [
+        {
+          "portionType": "100 gr Paket",
+          "unitPrice": 85
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "pul-biber",
+      "name": "Pul Biber",
+      "description": "Hatay usulü dengeli acılıkta, rengi ve aroması güçlü pul biber.",
+      "image": "/images/Pul%20biber%20ve%20do%C4%9Fan%C4%B1n%20huzuru.png",
+      "portionOptions": [
+        {
+          "portionType": "100 gr Paket",
+          "unitPrice": 140
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "kori",
+      "name": "Köri",
+      "description": "Mutfakta farklı aromalar sevenler için özenle harmanlanmış baharat karışımı.",
+      "image": "/images/Do%C4%9Fal%20k%C3%B6ri%20baharat%C4%B1%20g%C3%B6r%C3%BCnt%C3%BCs%C3%BC.png",
+      "portionOptions": [
+        {
+          "portionType": "100 gr Paket",
+          "unitPrice": 110
+        }
+      ],
+      "active": true
+    },
+    {
+      "id": "hatay-kombesi",
+      "name": "Hatay Kömbesi",
+      "description": "Tereyağlı ve baharatlı geleneksel Hatay kömbesi, çay saatlerine yakışan özel bir lezzet.",
+      "image": "/images/Hatay%20K%C3%B6mbesi%20ve%20geleneksel%20sunum.png",
+      "portionOptions": [
+        {
+          "portionType": "500 gr Paket",
+          "unitPrice": 150
+        },
+        {
+          "portionType": "1 kg Paket",
+          "unitPrice": 280
+        }
+      ],
+      "active": true
+    }
+  ],
+  "packages": [
+    {
+      "id": "hatay-kahvalti-kutusu",
+      "name": "Hatay Kahvaltı Kutusu",
+      "description": "Hafta sonu sofraları için premium seçim.",
+      "items": "Soğuk Sıkım Zeytinyağı 1 Litre, Hatay Doğal Nar Ekşisi 1 Litre, Domates Salçası 1 kg, Kekik 100 gr",
+      "emoji": "☀️",
+      "price": 995
+    },
+    {
+      "id": "yoresel-mutfak-paketi",
+      "name": "Yöresel Mutfak Paketi",
+      "description": "Hatay mutfağının temel lezzetlerini bir araya getirir.",
+      "items": "Tatlı Biber Salçası 1 kg, Acı Biber Salçası 1 kg, Pul Biber 100 gr, Kimyon 100 gr, Nane 100 gr",
+      "emoji": "🫒",
+      "price": 845
+    },
+    {
+      "id": "hediyelik-dogal-koli",
+      "name": "Hediyelik Doğal Koli",
+      "description": "Sevdiklerinize gönderebileceğiniz özel seçki.",
+      "items": "Üzüm Pekmezi 450 gr, Keçiboynuzu Pekmezi 450 gr, Hatay Kömbesi 500 gr, Doğal Kuru İncir 500 gr",
+      "emoji": "🎁",
+      "price": 910
+    }
+  ]
+}

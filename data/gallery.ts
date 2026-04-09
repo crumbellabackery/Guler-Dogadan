@@ -13,50 +13,50 @@ export type GalleryItem = {
 export const galleryItems: GalleryItem[] = [
   {
     id: "g1",
-    title: "Fırından Taze",
-    description: "Her gün sınırlı miktar; sıcak servis.",
+    title: "Soğuk Sıkım Zeytinyağı",
+    description: "Meyvemsi aroması ve premium cam şişe sunumuyla özel seçki.",
     imageSrc:
-      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80",
-    imageAlt: "Fırından taze hamur işleri",
+      "https://images.unsplash.com/photo-1474979266404-7eaacbcd87c5?w=1200&q=80",
+    imageAlt: "Premium zeytinyağı sunumu",
   },
   {
     id: "g2",
-    title: "Pastalar",
-    description: "Krema ve mevsim meyveleriyle.",
+    title: "Hatay Doğal Nar Ekşisi",
+    description: "Gerçek narla hazırlanan yoğun kıvamlı yöresel lezzet.",
     imageSrc:
-      "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?w=1200&q=80",
-    imageAlt: "Pasta çeşitleri",
+      "https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=1200&q=80",
+    imageAlt: "Nar ekşisi sunumu",
   },
   {
     id: "g3",
-    title: "Tatlı Anı",
-    description: "Kahve eşlikçisi tatlılar.",
+    title: "Domates ve Biber Salçaları",
+    description: "Hatay mutfağının temelini oluşturan yoğun aromalı kavanozlar.",
     imageSrc:
-      "https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=1200&q=80",
-    imageAlt: "Tatlı tabağı",
+      "https://images.unsplash.com/photo-1488459716781-31db52582fe9?w=1200&q=80",
+    imageAlt: "Domates ve biber salçaları",
   },
   {
     id: "g4",
-    title: "Kurabiye & Cookie",
-    description: "Çay saatine özel.",
+    title: "Baharat Seçkisi",
+    description: "Kimyon, kekik, karabiber, nane, pul biber ve kori ile güçlü aroma.",
     imageSrc:
-      "https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=1200&q=80",
-    imageAlt: "Kurabiye ve kurabiye çeşitleri",
+      "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?w=1200&q=80",
+    imageAlt: "Baharat seçkisi",
   },
   {
     id: "g5",
-    title: "Tuzlu Lezzetler",
-    description: "Poğaça ve çörekler.",
+    title: "Pekmez Çeşitleri",
+    description: "Üzüm ve keçiboynuzu pekmezinde geleneksel usul ve dengeli kıvam.",
     imageSrc:
-      "https://images.unsplash.com/photo-1608198093002-ad4e155949bc?w=1200&q=80",
-    imageAlt: "Tuzlu hamur işleri",
+      "https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=1200&q=80",
+    imageAlt: "Pekmez çeşitleri",
   },
   {
     id: "g6",
-    title: "Özel Gün",
-    description: "Doğum günü ve kutlamalar.",
+    title: "Hatay Kömbesi ve Doğal İncir",
+    description: "Çay saatine ve hediyelik seçimlere yakışan premium ikili.",
     imageSrc:
-      "https://images.unsplash.com/photo-1535254973040-607b474ea50c?w=1200&q=80",
-    imageAlt: "Özel gün pastası",
+      "https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1200&q=80",
+    imageAlt: "Hatay kömbesi ve doğal incir sunumu",
   },
 ];

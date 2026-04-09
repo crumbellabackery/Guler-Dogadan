@@ -18,9 +18,9 @@ type ButtonAsLink = Base & {
 
 const variants = {
   primary:
-    "bg-gradient-to-r from-luxury-accent to-luxury-secondary text-white shadow-soft hover:shadow-soft-md hover:-translate-y-0.5 active:translate-y-0",
+    "bg-[linear-gradient(135deg,#6F8450,#C98C58)] text-white shadow-soft hover:shadow-soft-md hover:-translate-y-0.5 active:translate-y-0",
   secondary:
-    "bg-luxury-primary/20 text-luxury-text border border-luxury-accent/30 shadow-soft hover:bg-luxury-primary/30 hover:border-luxury-accent/50 hover:-translate-y-0.5",
+    "bg-white/40 text-luxury-text border border-luxury-accent/25 shadow-soft hover:bg-luxury-primary/35 hover:border-luxury-accent/50 hover:-translate-y-0.5 backdrop-blur-sm",
   ghost:
     "bg-transparent text-luxury-text hover:bg-luxury-primary/15 hover:text-luxury-accent",
 };

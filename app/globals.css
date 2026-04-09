@@ -2,13 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Luxury Bakery Theme Colors */
+/* Guler Dogadan village products theme */
 :root {
-  --color-bg: #FAF7F2;
-  --color-primary: #EAD7C5;
-  --color-accent: #C89B7B;
-  --color-text: #2B2B2B;
-  --color-secondary: #E8B4B8;
+  --color-bg: #FAF6EE;
+  --color-primary: #ECE2CC;
+  --color-accent: #3F5A2D;
+  --color-text: #2E281F;
+  --color-secondary: #7B6130;
 }
 
 /* Base Styles */
@@ -19,7 +19,7 @@ html {
 body {
   background-color: var(--color-bg);
   color: var(--color-text);
-  font-family: var(--font-poppins), system-ui, -apple-system, sans-serif;
+  font-family: var(--font-nunito), system-ui, -apple-system, sans-serif;
   letter-spacing: 0.3px;
 }
 
@@ -68,7 +68,8 @@ body {
 
 /* Typography */
 h1, h2, h3, h4, h5, h6 {
-  letter-spacing: 0.5px;
+  font-family: var(--font-alegreya), Georgia, serif;
+  letter-spacing: 0.3px;
   font-weight: 600;
 }
 
