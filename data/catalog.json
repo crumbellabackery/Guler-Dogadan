@@ -202,6 +202,19 @@
         }
       ],
       "active": true
+    },
+    {
+      "id": "deneme",
+      "name": "Deneme",
+      "description": "Deneme",
+      "image": "/images/G%C3%BCler%20Do%C4%9Fadan%20logosu%20ve%20zeytin%20dal%C4%B1.png",
+      "active": true,
+      "portionOptions": [
+        {
+          "portionType": "Standart",
+          "unitPrice": 100
+        }
+      ]
     }
   ],
   "packages": [
