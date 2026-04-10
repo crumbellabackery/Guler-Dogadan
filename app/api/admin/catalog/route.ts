@@ -31,13 +31,41 @@ export async function PUT(request: Request) {
   }
 
   if (!Array.isArray(body.products) || !Array.isArray(body.packages)) {
-    return Response.json({ error: "Gecersiz veri" }, { status: 400 });
+    return Response.json({ error: "Geçersiz veri" }, { status: 400 });
   }
 
-  const useGitHub =
-    Boolean(process.env.GITHUB_TOKEN) &&
-    Boolean(process.env.GITHUB_REPO_OWNER) &&
-    Boolean(process.env.GITHUB_REPO_NAME);
+  const githubToken = process.env.GITHUB_TOKEN;
+  const githubOwner = process.env.GITHUB_REPO_OWNER;
+  const githubRepo = process.env.GITHUB_REPO_NAME;
+  const useGitHub = Boolean(githubToken && githubOwner && githubRepo);
+  const partialGitHubConfig = Boolean(githubToken || githubOwner || githubRepo);
+
+  if (partialGitHubConfig && !useGitHub) {
+    const missing = [
+      !githubToken && "GITHUB_TOKEN",
+      !githubOwner && "GITHUB_REPO_OWNER",
+      !githubRepo && "GITHUB_REPO_NAME",
+    ]
+      .filter(Boolean)
+      .join(", ");
+
+    return Response.json(
+      {
+        error: `GitHub ayarları eksik: ${missing}. Tüm bu değişkenler prod ortamda katalogu güncellemek için gereklidir.`, 
+      },
+      { status: 500 },
+    );
+  }
+
+  if (!useGitHub && process.env.NODE_ENV === "production") {
+    return Response.json(
+      {
+        error:
+          "Canlı ortamda GitHub ortam değişkenleri ayarlı değil. GITHUB_TOKEN, GITHUB_REPO_OWNER ve GITHUB_REPO_NAME eklemelisin.",
+      },
+      { status: 500 },
+    );
+  }
 
   try {
     if (useGitHub) {
