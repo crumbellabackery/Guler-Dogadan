@@ -22,12 +22,31 @@ export async function PUT(request: Request) {
     return Response.json({ error: "Yetkisiz" }, { status: 401 });
   }
 
-  const body = (await request.json()) as CatalogData;
+  let body: CatalogData;
+
+  try {
+    body = (await request.json()) as CatalogData;
+  } catch {
+    return Response.json({ error: "Geçersiz JSON" }, { status: 400 });
+  }
 
   if (!Array.isArray(body.products) || !Array.isArray(body.packages)) {
     return Response.json({ error: "Gecersiz veri" }, { status: 400 });
   }
 
-  await writeCatalog(body);
+  try {
+    await writeCatalog(body);
+  } catch (error) {
+    return Response.json(
+      {
+        error:
+          error instanceof Error
+            ? `Dosyaya yazılamadı: ${error.message}`
+            : "Dosyaya yazılamadı.",
+      },
+      { status: 500 },
+    );
+  }
+
   return Response.json({ success: true });
 }

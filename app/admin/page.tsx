@@ -89,7 +89,8 @@ export default function AdminPage() {
     setSaving(false);
 
     if (!response.ok) {
-      setError("Kaydetme sırasında hata oluştu.");
+      const errorBody = await response.json().catch(() => null);
+      setError(errorBody?.error ?? "Kaydetme sırasında hata oluştu.");
       return false;
     }
 
