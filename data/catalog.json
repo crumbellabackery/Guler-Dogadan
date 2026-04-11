@@ -8,7 +8,7 @@
       "portionOptions": [
         {
           "portionType": "1 Litre Cam Şişe",
-          "unitPrice": 890
+          "unitPrice": 850
         }
       ],
       "active": true
@@ -21,7 +21,7 @@
       "portionOptions": [
         {
           "portionType": "1 Litre Cam Şişe",
-          "unitPrice": 525
+          "unitPrice": 500
         }
       ],
       "active": true
@@ -34,7 +34,7 @@
       "portionOptions": [
         {
           "portionType": "1 kg Kavanoz",
-          "unitPrice": 320
+          "unitPrice": 250
         }
       ],
       "active": true
@@ -47,7 +47,7 @@
       "portionOptions": [
         {
           "portionType": "1 kg Kavanoz",
-          "unitPrice": 340
+          "unitPrice": 300
         }
       ],
       "active": true
@@ -73,11 +73,11 @@
       "portionOptions": [
         {
           "portionType": "500 gr Paket",
-          "unitPrice": 220
+          "unitPrice": 200
         },
         {
           "portionType": "1 kg Paket",
-          "unitPrice": 410
+          "unitPrice": 400
         }
       ],
       "active": true
@@ -90,7 +90,7 @@
       "portionOptions": [
         {
           "portionType": "1000 gr Kavanoz",
-          "unitPrice": 360
+          "unitPrice": 350
         }
       ],
       "active": true
@@ -103,7 +103,7 @@
       "portionOptions": [
         {
           "portionType": "1000 gr Kavanoz",
-          "unitPrice": 390
+          "unitPrice": 400
         }
       ],
       "active": true
@@ -116,7 +116,7 @@
       "portionOptions": [
         {
           "portionType": "100 gr Paket",
-          "unitPrice": 95
+          "unitPrice": 80
         }
       ],
       "active": true
@@ -129,7 +129,7 @@
       "portionOptions": [
         {
           "portionType": "100 gr Paket",
-          "unitPrice": 90
+          "unitPrice": 70
         }
       ],
       "active": true
@@ -142,7 +142,7 @@
       "portionOptions": [
         {
           "portionType": "100 gr Paket",
-          "unitPrice": 120
+          "unitPrice": 100
         }
       ],
       "active": true
@@ -155,7 +155,7 @@
       "portionOptions": [
         {
           "portionType": "100 gr Paket",
-          "unitPrice": 85
+          "unitPrice": 75
         }
       ],
       "active": true
@@ -168,7 +168,7 @@
       "portionOptions": [
         {
           "portionType": "100 gr Paket",
-          "unitPrice": 140
+          "unitPrice": 100
         }
       ],
       "active": true
@@ -181,7 +181,7 @@
       "portionOptions": [
         {
           "portionType": "100 gr Paket",
-          "unitPrice": 110
+          "unitPrice": 90
         }
       ],
       "active": true
@@ -194,11 +194,11 @@
       "portionOptions": [
         {
           "portionType": "500 gr Paket",
-          "unitPrice": 150
+          "unitPrice": 200
         },
         {
           "portionType": "1 kg Paket",
-          "unitPrice": 280
+          "unitPrice": 400
         }
       ],
       "active": true
