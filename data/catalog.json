@@ -211,7 +211,7 @@
       "description": "Hafta sonu sofraları için premium seçim.",
       "items": "Soğuk Sıkım Zeytinyağı 1 Litre, Hatay Doğal Nar Ekşisi 1 Litre, Domates Salçası 1 kg, Kekik 100 gr",
       "emoji": "☀️",
-      "price": 995
+      "price": 900
     },
     {
       "id": "yoresel-mutfak-paketi",
@@ -219,7 +219,7 @@
       "description": "Hatay mutfağının temel lezzetlerini bir araya getirir.",
       "items": "Tatlı Biber Salçası 1 kg, Acı Biber Salçası 1 kg, Pul Biber 100 gr, Kimyon 100 gr, Nane 100 gr",
       "emoji": "🫒",
-      "price": 845
+      "price": 1490
     },
     {
       "id": "hediyelik-dogal-koli",
@@ -227,7 +227,7 @@
       "description": "Sevdiklerinize gönderebileceğiniz özel seçki.",
       "items": "Üzüm Pekmezi 450 gr, Keçiboynuzu Pekmezi 450 gr, Hatay Kömbesi 500 gr, Doğal Kuru İncir 500 gr",
       "emoji": "🎁",
-      "price": 910
+      "price": 1190
     }
   ]
 }
